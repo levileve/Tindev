@@ -6,7 +6,7 @@ module.exports = {
     const {user} = req.headers;
 
     const loggedDev = await Dev.findById(user);
-    
+ 
     const users = await Dev.find({
       $and: [
         { _id: { $ne: user } },
@@ -15,7 +15,10 @@ module.exports = {
       ]
     }); 
 
+    console.log(users);
+
     return res.json(users);
+    
   },
   async store(req, res) {
     const {username} = req.body;

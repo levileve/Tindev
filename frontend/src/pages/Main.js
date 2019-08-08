@@ -1,14 +1,12 @@
 import React, {useEffect, useState} from "react";
 import {Link} from 'react-router-dom';
-
-import logo from '../assets/logo.svg';
-
-import like from '../assets/like.svg';
-import dislike from '../assets/dislike.svg';
+import './Main.css';
 
 import api from '../services/api';
 
-import './Main.css';
+import logo from '../assets/logo.svg';
+import like from '../assets/like.svg';
+import dislike from '../assets/dislike.svg';
 
 export default function Main({match}) {
 
@@ -29,7 +27,7 @@ export default function Main({match}) {
   async function handleLike(id) {
     console.log('Like', id);
 
-    await api.post(`/dev/${id}/likes`, null, {
+    await api.post(`/devs/${id}/likes`, null, {
       headers: {user: match.params.id}
     });
     
@@ -39,7 +37,7 @@ export default function Main({match}) {
   async function handleDislike(id) {
     console.log('Dislike', id);
 
-    await api.post(`/dev/${id}/dislikes`, null, {
+    await api.post(`/devs/${id}/dislikes`, null, {
       headers: {user: match.params.id}
     });
 
