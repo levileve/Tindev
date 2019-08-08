@@ -13,7 +13,7 @@ module.exports = {
         { _id: { $nin: loggedDev.likes}},
         { _id: { $nin: loggedDev.dislikes}},
       ]
-    })
+    }); 
 
     return res.json(users);
   },
